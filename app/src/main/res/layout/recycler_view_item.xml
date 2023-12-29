@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="9dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/deadlineTV"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="10dp"
+            android:text="yyyy.mm.dd"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="@+id/deadlineDescription"
+            app:layout_constraintEnd_toEndOf="@+id/taskNameTV"
+            app:layout_constraintStart_toEndOf="@+id/deadlineDescription"
+            app:layout_constraintTop_toTopOf="@+id/deadlineDescription" />
+
+        <TextView
+            android:id="@+id/deadlineDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Deadline"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/taskNameTV"
+            app:layout_constraintTop_toBottomOf="@+id/taskNameTV" />
+
+        <ImageView
+            android:id="@+id/percentageOfDoneIV"
+            android:layout_width="143dp"
+            android:layout_height="142dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/avatars" />
+
+
+        <TextView
+            android:id="@+id/taskNameTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="8dp"
+            android:text="Task name"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/percentageOfDoneIV"
+            app:layout_constraintTop_toTopOf="@+id/percentageOfDoneIV" />
+
+        <TextView
+            android:id="@+id/priorityDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:text="Priority"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/deadlineDescription"
+            app:layout_constraintTop_toBottomOf="@+id/deadlineTV" />
+
+        <TextView
+            android:id="@+id/priorityEnumTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Prio enum"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="@+id/priorityDescription"
+            app:layout_constraintStart_toStartOf="@+id/deadlineTV"
+            app:layout_constraintTop_toTopOf="@+id/priorityDescription" />
+
+        <TextView
+            android:id="@+id/percentageOfDoneDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="Done (%)"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/priorityDescription"
+            app:layout_constraintTop_toBottomOf="@+id/priorityEnumTV" />
+
+        <TextView
+            android:id="@+id/percentageOfDoneTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Percentage of done"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="@+id/percentageOfDoneDescription"
+            app:layout_constraintStart_toStartOf="@+id/priorityEnumTV"
+            app:layout_constraintTop_toTopOf="@+id/percentageOfDoneDescription"
+            app:layout_constraintVertical_bias="0.0" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

@@ -107,8 +107,8 @@
         android:text="EDIT"
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintEnd_toEndOf="@+id/iV_fv_progressCircle"
+        app:layout_constraintTop_toBottomOf="@+id/iV_fv_progressCircle" />
 
     <Button
         android:id="@+id/btn_back"
@@ -122,13 +122,17 @@
         app:layout_constraintTop_toTopOf="@+id/btn_edit" />
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="188dp"
-        android:layout_height="162dp"
+        android:id="@+id/iV_fv_progressCircle"
+        android:layout_width="143dp"
+        android:layout_height="142dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:src="@drawable/progress_circle"
         app:layout_constraintEnd_toEndOf="@+id/tv_description"
         app:layout_constraintStart_toEndOf="@+id/tv_totalCost"
-        app:layout_constraintTop_toTopOf="@+id/tv_progressPercentageLabel"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:layout_constraintTop_toTopOf="@+id/tv_progressPercentageLabel" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

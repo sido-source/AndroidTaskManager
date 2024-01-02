@@ -8,13 +8,14 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.taskmanager.DataSource
 import com.example.taskmanager.Navigable
+import com.example.taskmanager.adapter.IRecyclerView
 import com.example.taskmanager.adapter.TasksAdapter
 import com.example.taskmanager.databinding.FragmentListBinding
 import java.time.LocalDate
 import java.time.temporal.WeekFields
 import kotlin.concurrent.thread
 
-class ListFragment : Fragment() {
+class ListFragment : Fragment(), IRecyclerView {
 
     private lateinit var binding: FragmentListBinding
     private var adapter: TasksAdapter? = null;
@@ -32,7 +33,7 @@ class ListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        adapter = TasksAdapter()
+        adapter = TasksAdapter(binding.listView, this)
         validateDeadlines()
         loadData()
         val currentWeek = LocalDate.now().get(WeekFields.ISO.weekOfWeekBasedYear()) // Get the current week number
@@ -80,4 +81,25 @@ class ListFragment : Fragment() {
             adapter?.replace(DataSource.tasks)
 //        }
     }
+
+    override fun onHoldItem(taskId: Long) {
+        val position = DataSource.tasks.indexOfFirst { it.id == taskId }
+
+        if (position != -1) {
+            DataSource.tasks.removeAt(position)
+            adapter?.onDeleteItem(taskId)
+
+            val currentWeek = LocalDate.now().get(WeekFields.ISO.weekOfWeekBasedYear()) // Get the current week number
+
+            val objectsInCurrentWeek = DataSource.tasks.filter {
+                val weekOfDeadline = it.deadline.get(WeekFields.ISO.weekOfWeekBasedYear())
+                weekOfDeadline == currentWeek
+            }
+
+            binding.tvThisWeekTask.setText(objectsInCurrentWeek.size.toString())
+        }
+
+
+    }
+
 }

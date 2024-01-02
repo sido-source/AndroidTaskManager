@@ -13,6 +13,7 @@ import com.example.taskmanager.model.Task
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
+
 class ViewFragment : Fragment() {
 
     private lateinit var binding: FragmentViewBinding

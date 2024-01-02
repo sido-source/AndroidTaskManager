@@ -4,7 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".fragments.EditFragment">
+
+    <TextView
+        android:id="@+id/tv_priorityLabel"
+        android:layout_width="111dp"
+        android:layout_height="38dp"
+        android:layout_marginEnd="32dp"
+        android:text="@string/priority"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_dateLabel"
+        app:layout_constraintEnd_toEndOf="@+id/tv_name"
+        app:layout_constraintTop_toTopOf="@+id/tv_dateLabel" />
+
+    <EditText
+        android:id="@+id/tv_priority"
+        android:layout_width="139dp"
+        android:layout_height="39dp"
+        android:hint="@string/high_medium_low"
+        android:inputType="date"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_date"
+        app:layout_constraintEnd_toEndOf="@+id/tv_name"
+        app:layout_constraintStart_toStartOf="@+id/tv_priorityLabel"
+        app:layout_constraintTop_toTopOf="@+id/tv_date" />
 
     <TextView
         android:id="@+id/tv_nameLabel"
@@ -12,7 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="Name"
+        android:text="@string/name"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -35,15 +59,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="Deadline"
+        android:text="@string/deadline"
+        android:hint="yyyy.mm.dd"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="@+id/tv_name"
         app:layout_constraintTop_toBottomOf="@+id/tv_name" />
 
     <EditText
         android:id="@+id/tv_date"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="119dp"
+        android:layout_height="40dp"
         android:layout_marginTop="8dp"
         android:ems="10"
         android:inputType="date"
@@ -56,7 +81,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="Description"
+        android:text="@string/description"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="@+id/tv_date"
         app:layout_constraintTop_toBottomOf="@+id/tv_date" />
@@ -69,7 +94,7 @@
         android:ems="10"
         android:gravity="start|top"
         android:inputType="text|textMultiLine"
-        android:lines="3"
+        android:lines="6"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="@+id/tv_name"
         app:layout_constraintStart_toStartOf="@+id/tv_descriptionLabel"
@@ -80,13 +105,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="Progress (in %)"
+        android:text="@string/progress"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="@+id/tv_description"
         app:layout_constraintTop_toBottomOf="@+id/tv_description" />
 
     <EditText
-        android:id="@+id/tv_totalCost"
+        android:id="@+id/tv_progressPercentage"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -97,22 +122,44 @@
         app:layout_constraintStart_toStartOf="@+id/tv_progressPercentageLabel"
         app:layout_constraintTop_toBottomOf="@+id/tv_progressPercentageLabel" />
 
+    <TextView
+        android:id="@+id/tv_estimatedTimeLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/estimated_time"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="@+id/tv_progressPercentage"
+        app:layout_constraintTop_toBottomOf="@+id/tv_progressPercentage" />
+
+    <EditText
+        android:id="@+id/tv_estimatedTime"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="number"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="@+id/tv_progressPercentage"
+        app:layout_constraintStart_toStartOf="@+id/tv_estimatedTimeLabel"
+        app:layout_constraintTop_toBottomOf="@+id/tv_estimatedTimeLabel" />
+
     <Button
         android:id="@+id/btn_save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:text="SAVE"
+        android:layout_marginTop="24dp"
+        android:text="@string/save"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="@+id/tv_description"
-        app:layout_constraintTop_toBottomOf="@+id/tv_totalCost" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_estimatedTime" />
 
     <Button
         android:id="@+id/btn_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
-        android:text="BACK"
+        android:text="@string/back"
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="@+id/btn_save"
         app:layout_constraintEnd_toStartOf="@+id/btn_save"

@@ -13,100 +13,87 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/deadlineTV"
-            android:layout_width="0dp"
-            android:layout_height="20dp"
-            android:layout_marginStart="10dp"
-            android:text="yyyy.mm.dd"
-            android:textSize="15sp"
-            app:layout_constraintBottom_toBottomOf="@+id/deadlineDescription"
-            app:layout_constraintEnd_toEndOf="@+id/taskNameTV"
-            app:layout_constraintStart_toEndOf="@+id/deadlineDescription"
-            app:layout_constraintTop_toTopOf="@+id/deadlineDescription" />
+            android:id="@+id/taskNameTV"
+            android:layout_width="362dp"
+            android:layout_height="37dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/task_name"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/deadlineDescription"
+            android:id="@+id/tv_deadline"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="16dp"
+            android:text="@string/yyyy_mm_dd"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_deadlineLabel"
+            app:layout_constraintStart_toEndOf="@+id/tv_deadlineLabel"
+            app:layout_constraintTop_toTopOf="@+id/tv_deadlineLabel" />
+
+        <TextView
+            android:id="@+id/tv_deadlineLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="Deadline"
+            android:layout_marginTop="16dp"
+            android:text="@string/deadline"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/taskNameTV"
             app:layout_constraintTop_toBottomOf="@+id/taskNameTV" />
 
-        <ImageView
-            android:id="@+id/iV_progressCircle"
-            android:layout_width="143dp"
-            android:layout_height="142dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:adjustViewBounds="true"
-            android:scaleType="fitCenter"
-            android:src="@drawable/progress_circle"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
 
         <TextView
-            android:id="@+id/taskNameTV"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginEnd="8dp"
-            android:text="Task name"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/iV_progressCircle"
-            app:layout_constraintTop_toTopOf="@+id/iV_progressCircle" />
-
-        <TextView
-            android:id="@+id/priorityDescription"
+            android:id="@+id/tv_priorityLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="18dp"
-            android:text="Priority"
+            android:text="@string/priority"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/deadlineDescription"
-            app:layout_constraintTop_toBottomOf="@+id/deadlineTV" />
+            app:layout_constraintStart_toStartOf="@+id/tv_deadlineLabel"
+            app:layout_constraintTop_toBottomOf="@+id/tv_deadline" />
 
         <TextView
-            android:id="@+id/priorityEnumTV"
+            android:id="@+id/tv_priorityEnum"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Prio enum"
+            android:layout_marginStart="16dp"
+            android:text="@string/prio_enum"
             android:textSize="15sp"
-            app:layout_constraintBottom_toBottomOf="@+id/priorityDescription"
-            app:layout_constraintStart_toStartOf="@+id/deadlineTV"
-            app:layout_constraintTop_toTopOf="@+id/priorityDescription" />
+            app:layout_constraintBottom_toBottomOf="@+id/tv_priorityLabel"
+            app:layout_constraintStart_toEndOf="@+id/tv_priorityLabel"
+            app:layout_constraintTop_toTopOf="@+id/tv_priorityLabel" />
 
         <TextView
-            android:id="@+id/percentageOfDoneDescription"
+            android:id="@+id/tv_percentageOfDoneLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
-            android:text="Done (%)"
+            android:text="@string/progress"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/priorityDescription"
-            app:layout_constraintTop_toBottomOf="@+id/priorityEnumTV" />
+            app:layout_constraintStart_toStartOf="@+id/tv_priorityLabel"
+            app:layout_constraintTop_toBottomOf="@+id/tv_priorityEnum" />
 
         <TextView
-            android:id="@+id/percentageOfDoneTV"
+            android:id="@+id/tv_percentageOfDone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Percentage of done"
+            android:layout_marginStart="16dp"
+            android:text="@string/percentage_of_done"
             android:textSize="15sp"
-            app:layout_constraintBottom_toBottomOf="@+id/percentageOfDoneDescription"
-            app:layout_constraintStart_toStartOf="@+id/priorityEnumTV"
-            app:layout_constraintTop_toTopOf="@+id/percentageOfDoneDescription"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintBottom_toBottomOf="@+id/tv_percentageOfDoneLabel"
+            app:layout_constraintStart_toEndOf="@+id/tv_percentageOfDoneLabel"
+            app:layout_constraintTop_toTopOf="@+id/tv_percentageOfDoneLabel" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

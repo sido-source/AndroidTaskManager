@@ -4,17 +4,20 @@ import android.annotation.SuppressLint
 import android.icu.util.Calendar
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.taskmanager.Navigable.Destination.*
 import com.example.taskmanager.databinding.ActivityMainBinding
-import com.example.taskmanager.databinding.FragmentListBinding
 import com.example.taskmanager.databinding.RecyclerViewItemBinding
+import com.example.taskmanager.fragments.ARG_EDIT_ID
+import com.example.taskmanager.fragments.EditFragment
 import com.example.taskmanager.fragments.ListFragment
+import com.example.taskmanager.fragments.ViewFragment
+import com.example.taskmanager.model.Task
 import java.text.DateFormat
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), Navigable {
 
     private lateinit var mainBinding: ActivityMainBinding
     private lateinit var listFragment: ListFragment
-    private lateinit var binding: RecyclerViewItemBinding
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,4 +42,32 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+    override fun navigate(to: Navigable.Destination, taskId: Long?) {
+        supportFragmentManager.beginTransaction().apply {
+            when (to){
+                List -> {
+                    replace(R.id.mainContainer, listFragment, listFragment.javaClass.name)
+                    addToBackStack(EditFragment::javaClass.name)
+                }
+                Add -> {
+                    replace(
+                        R.id.mainContainer,
+                        EditFragment::class.java,
+                        Bundle().apply { putLong(ARG_EDIT_ID, taskId ?: -1L) },
+                        EditFragment::class.java.name)
+                    //if user would like to see or edit specific shopping list and then get back to previous view such as MainShoppingLists
+                    addToBackStack(EditFragment::javaClass.name)
+                }
+
+                View -> {
+                    replace(
+                        R.id.mainContainer,
+                        ViewFragment::class.java,
+                        Bundle().apply { putLong(ARG_EDIT_ID, taskId ?: -1L) },
+                        ViewFragment::class.java.name)
+                    addToBackStack(EditFragment::javaClass.name)
+                }
+            }.commit()
+        }
+    }
 }

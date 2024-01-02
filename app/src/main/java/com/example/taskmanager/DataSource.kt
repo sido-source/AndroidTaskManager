@@ -11,7 +11,7 @@ object DataSource {
             name = "Finish Kotlin Course",
             priority = Priority.HIGH.toString(),
             deadline = LocalDate.of(2023, 12, 31),
-            percentageOfDone = 0.0,
+            percentageOfDone = 10.0,
             estimatedTimeInMinutes = 600,
             description = "description1"
         ),
@@ -29,25 +29,25 @@ object DataSource {
             name = "Buy Groceries",
             priority = Priority.LOW.toString(),
             deadline = LocalDate.of(2024, 7, 10),
-            percentageOfDone = 0.0,
+            percentageOfDone = 25.0,
             estimatedTimeInMinutes = 60,
             description = "description3"
         ),
         Task(
             id = 4L,
-            name = "Buy Groceries",
+            name = "Learn new language",
             priority = Priority.LOW.toString(),
             deadline = LocalDate.of(2024, 7, 9),
-            percentageOfDone = 0.0,
+            percentageOfDone = 75.0,
             estimatedTimeInMinutes = 60,
             description = "description4"
         ),
         Task(
             id = 5L,
-            name = "Buy Groceries",
-            priority = Priority.LOW.toString(),
+            name = "Create new project on the github",
+            priority = Priority.HIGH.toString(),
             deadline = LocalDate.of(2024, 7, 23),
-            percentageOfDone = 0.0,
+            percentageOfDone = 40.0,
             estimatedTimeInMinutes = 60,
             description = "description5"
         )

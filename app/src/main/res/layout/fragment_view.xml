@@ -9,6 +9,15 @@
 
 
     <TextView
+        android:id="@+id/tv_toDoLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="To do"
+        app:layout_constraintStart_toEndOf="@+id/tv_doneColor"
+        app:layout_constraintTop_toTopOf="@+id/tv_doneColor" />
+
+    <TextView
         android:id="@+id/tv_nameLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -188,5 +197,32 @@
         android:src="@drawable/progress_circle"
         app:layout_constraintEnd_toEndOf="@+id/tv_description"
         app:layout_constraintTop_toTopOf="@+id/tv_progressPercentageLabel" />
+
+    <TextView
+        android:id="@+id/tv_doneLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Done"
+        app:layout_constraintStart_toStartOf="@+id/iV_fv_progressCircle"
+        app:layout_constraintTop_toBottomOf="@+id/iV_fv_progressCircle" />
+
+    <TextView
+        android:id="@+id/tv_doneColor"
+        android:layout_width="20dp"
+        android:layout_height="17dp"
+        android:layout_marginStart="8dp"
+        android:background="#228B22"
+        app:layout_constraintStart_toEndOf="@+id/tv_doneLabel"
+        app:layout_constraintTop_toTopOf="@+id/tv_doneLabel" />
+
+    <TextView
+        android:id="@+id/tv_toDoColor"
+        android:layout_width="20dp"
+        android:layout_height="17dp"
+        android:layout_marginStart="8dp"
+        android:background="#C70E0E"
+        app:layout_constraintStart_toEndOf="@+id/tv_toDoLabel"
+        app:layout_constraintTop_toTopOf="@+id/tv_toDoLabel" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

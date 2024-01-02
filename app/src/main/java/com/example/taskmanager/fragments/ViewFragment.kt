@@ -10,6 +10,7 @@ import com.example.taskmanager.DataSource
 import com.example.taskmanager.Navigable
 import com.example.taskmanager.databinding.FragmentViewBinding
 import com.example.taskmanager.model.Task
+import com.example.taskmanager.util.CircleProgressDrawable
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
@@ -41,10 +42,19 @@ class ViewFragment : Fragment() {
 
         binding.tvName.setText(task?.name ?: "Not named yet")
         binding.tvDescription.setText(task?.description ?: "No description yet")
-        binding.tvDate.setText(task?.deadline.toString() ?: LocalDate.now().format(DateTimeFormatter.ISO_LOCAL_DATE))
-        binding.tvEstimatedTime.setText(task?.estimatedTimeInMinutes.toString()?: "0")
-        binding.tvProgressPercentage.setText(task?.percentageOfDone.toString() ?: "0")
+        binding.tvDate.setText(task?.deadline?.toString() ?: LocalDate.now().format(DateTimeFormatter.ISO_LOCAL_DATE))
+        binding.tvEstimatedTime.setText(task?.estimatedTimeInMinutes?.toString()?: "0")
+        binding.tvProgressPercentage.setText(task?.percentageOfDone?.toString() ?: "0")
         binding.tvPriority.setText(task?.priority ?: "LOW")
+        val progressDrawable = CircleProgressDrawable()
+
+        // Set the progress percentage (assuming task is your Task object)
+        task?.let {
+            progressDrawable.setProgress(it.percentageOfDone)
+        }
+
+        // Set the drawable to the ImageView
+        binding.iVFvProgressCircle.setImageDrawable(progressDrawable)
 
         binding.btnBack.setOnClickListener {
             requireActivity().onBackPressed()
